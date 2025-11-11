@@ -1,80 +1,24 @@
-URL Shortener – Go
+URL Shortener in Go
 
-A minimal, structured URL shortener built with Go’s standard libraries. The service accepts a long URL and returns a shortened version, then redirects short codes back to the original URL. This project focuses on clean routing, concurrency-safe storage, and basic validation.
+This is a simple URL shortener built using Go’s standard net/http package. It generates a short code for any valid URL and redirects users back to the original link.
 
 Features
 
-Simple REST API (POST /shorten)
+REST endpoint to shorten URLs
 
-Redirect handler (GET /<code>)
+Redirect handler for short codes
 
-In-memory storage with concurrency protection
+In-memory storage using a concurrency-safe map
 
-Random short code generator
+Random short code generation
 
-URL validation using net/url
+Basic URL validation
 
-Clean folder structure (handlers, storage, utils)
-
-Tech Stack
-
-Go (net/http)
-
-Go routines & sync.RWMutex
-
-No external dependencies
-
-Folder Structure
-url-shortener/
-│
-├── main.go
-├── handlers/
-│   └── handlers.go
-├── storage/
-│   └── storage.go
-└── utils/
-    └── utils.go
-
-API Usage
-Create a short URL
-
-Endpoint:
-POST http://localhost:8080/shorten
-
-Body:
-
-{
-  "url": "https://example.com"
-}
-
-
-Response:
-
-{
-  "short_url": "http://localhost:8080/Ab12Xy"
-}
-
-Redirect to original URL
-
-Open the generated short URL in your browser:
-
-http://localhost:8080/Ab12Xy
-
-
-You will be redirected to the original URL.
-
-How to Run
-go run main.go handlers/handlers.go storage/storage.go utils/utils.go
-
-
-Server starts on:
-
-http://localhost:8080
+Minimal project structure
 
 Notes
 
-Storage is in-memory, so data resets on restart.
+All data is stored in memory and cleared when the server restarts.
 
-This project prioritizes simplicity and clarity.
-
-Ideal for beginners learning Go’s HTTP handling and basic concurrency patterns.
+This project focuses on basic Go concepts: routing, h
+andlers, validation, and concurrency.
